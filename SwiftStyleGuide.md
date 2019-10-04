@@ -114,6 +114,7 @@ class NetworkManager {
   private init() {}
 }
 ```
+- When checking if a collection is empty or not, prefer `isEmpty` to `.count == 0`
 ### Access Modifiers
 - Write the access modifier keyword first if it is needed.
 - The access modifier keyword should not be on a line by itself - keep it inline with what it is describing.
@@ -169,7 +170,7 @@ Use method 3 when either
 - Keep parameter names on the same line as the opening brace for closures when possible without too much horizontal overflow (i.e. ensure lines are less than 150 characters).
 - Use trailing closure syntax unless the meaning of the closure is not obvious without the parameter name. 
 - Do not use trailing closure if the method has several closures as parameters. Each one shall be used explicitly.
-### ArraysArrays
+### Arrays
 - In general, avoid accessing an array directly with subscripts. When possible, use accessors such as `.first` or `.last`, which are optional and won’t crash. Prefer using a `for item in items` syntax when possible as opposed to something like `for i in 0 ..< items.count`. If you need to access an array subscript directly, make sure to do proper bounds checking. You can use `for (index, value) in items.enumerated()` to get both the index and the value.
 - Never use the `+=` or `+` operator to append/concatenate to arrays. Instead, use `.append()` or `.append(contentsOf:)` as these are far more performant (at least with respect to compilation) in Swift's current state. If you are declaring an array that is based on other arrays and want to keep it immutable, instead of `let myNewArray = arr1 + arr2`, use `let myNewArray = [arr1, arr2].joined()`.
 ### Using guard Statements
