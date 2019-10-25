@@ -118,6 +118,18 @@ These 2 classes (`Modules` and `Services`) are ideally the only 2 singletons in 
 - passing the instance of the service between modules
 - storing the instance of the service as a property inside `Services` (see `authorizationService` above) 
 
+### Dependencies
+
+Cocoapods (https://cocoapods.org) is used as a dependency manager.
+Pods shall not be commited to git repository. Podfile.lock on the other hand should be commited.
+
+Versioning in Podfile should be kept up-to-date according to the following logics:
+1. **Start of project** (MVP, version 1.0 etc.): Podfile is version-free, all pods are the latest versions (motivated exceptions are possible).
+2. **Before release**: (reasonable time before sending app to review, e.g. one week): Podfile should contain limiting versions for all pods. This is merged into development branch. Regression testing before release should be made on the project with versioned Podfile.
+3. **After successful release**: the code together with versioned Podfile should me merged into `master` branch.
+4. **Next sprint/development phase**: the developer can work with Podfile as needed. Versions can be removed or kept for all or only specific pods, depending on the situation. If several developers work on the same project, they need to discuss the way they work with Podfile during this step.
+5. See step 2.
+
 ### Other Conventions
 
 - The project is localized regardless of the number of supported languages. Adding a new language is thus a matter of adding 1 .strings file in the future.
