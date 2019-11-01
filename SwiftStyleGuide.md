@@ -116,11 +116,11 @@ class NetworkManager {
 ```
 - When checking if a collection is empty or not, prefer `isEmpty` to `.count == 0`
 ### Access Modifiers
+- Properties and methods should always be marked as `private` unless public access is required. This includes `IBOutlets`, `IBActions` and `@objc` methods.
+- Prefer `private` to `fileprivate` wherever possible.
 - Write the access modifier keyword first if it is needed.
 - The access modifier keyword should not be on a line by itself - keep it inline with what it is describing.
 - In general, do not write the `internal` access modifier keyword since it is the default.
-- Prefer `private` to `fileprivate` wherever possible.
-- IBActions and @objc methods should be `private` whenever possible.
 ### Custom Operators
 - Prefer creating named functions to custom operators.
 - If you want to introduce a custom operator, make sure that you have a very good reason why you want to introduce a new operator into global scope as opposed to using some other construct.
